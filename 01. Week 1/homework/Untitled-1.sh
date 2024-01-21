@@ -1,4 +1,6 @@
-docker run -it \
+winpty docker run -it --entrypoint=bash python:3.9
+
+winpty docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
@@ -81,3 +83,15 @@ winpty docker run -it \
   --db=ny_taxi \
   --table_name=green_taxi_trips \
   --url=${URL}
+
+
+# terraform
+terraform fmt
+
+terraform init
+
+terraform plan
+
+terraform apply
+
+terraform destroy
