@@ -43,6 +43,9 @@ def load_data(*args, **kwargs):
         url_path = url_base + year + '-' + m + '.csv.gz'
         temp_df = pd.read_csv(url_path, sep=",", compression="gzip", dtype=taxi_dtypes, parse_dates=parse_dates)
         df = pd.concat([df, temp_df], ignore_index=True)
+    print(f"The shape of the data: {df.shape[0]} rows and {df.shape[1]} columns.")
+    print(f"The number of lines has NA VendorID: {df['VendorID'].isna().sum()}")
+    print(f"The existing value in column VendorID: {df['VendorID'].unique()}")
     return df
 
 
