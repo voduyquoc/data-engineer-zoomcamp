@@ -40,6 +40,7 @@ winpty docker run -it \
   --name pgadmin-homework \
   dpage/pgadmin4
 
+python -m notebook
 
 URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-09.csv.gz"
 
