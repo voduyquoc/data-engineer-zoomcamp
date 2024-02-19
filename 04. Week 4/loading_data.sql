@@ -52,3 +52,13 @@ OPTIONS (
   format = 'CSV',
   uris = ['gs://fhv_data_2019_dqv/fhv_tripdata_2019-*.csv'] 
 );
+
+-- Create a non partitioned table from external table
+CREATE OR REPLACE TABLE ny-rides-quocvo.trips_data_all.fhv_tripdata AS
+SELECT * FROM ny-rides-quocvo.trips_data_all.external_fhv_tripdata;
+
+
+{% set models_to_generate = codegen.get_models(directory='core', prefix='') %}
+{{ codegen.generate_model_yaml(
+    model_names = models_to_generate
+) }}
