@@ -1,5 +1,5 @@
 CREATE TABLE ny-rides-quocvo.trips_data_all.green_tripdata AS
-SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2019`
+SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2019`;
 
 CREATE TABLE ny-rides-quocvo.trips_data_all.yellow_tripdata AS
 SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2019`;
@@ -44,3 +44,11 @@ ALTER TABLE `ny-rides-quocvo.trips_data_all.green_tripdata`
   RENAME COLUMN pickup_location_id TO PULocationID;
 ALTER TABLE `ny-rides-quocvo.trips_data_all.green_tripdata`
   RENAME COLUMN dropoff_location_id TO DOLocationID;
+
+
+-- Homework
+CREATE OR REPLACE EXTERNAL TABLE `ny-rides-quocvo.trips_data_all.external_fhv_tripdata`
+OPTIONS (
+  format = 'CSV',
+  uris = ['gs://fhv_data_2019_dqv/fhv_tripdata_2019-*.csv'] 
+);
