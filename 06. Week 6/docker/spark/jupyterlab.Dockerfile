@@ -13,5 +13,5 @@ RUN apt-get update -y && \
 
 EXPOSE 8888
 WORKDIR ${SHARED_WORKSPACE}
-COPY streaming-notebook.ipynb streaming-notebook.ipynb
+COPY ./data ./data
 CMD jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=

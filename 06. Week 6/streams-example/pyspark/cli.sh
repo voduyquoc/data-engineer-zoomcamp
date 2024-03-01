@@ -1,0 +1,1 @@
+docker cp -L streaming.py spark_spark-master:/opt/workspace/streaming.py
